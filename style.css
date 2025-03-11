@@ -4,12 +4,17 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-style: oblique;
     background-color: white;
-    overflow-x: hidden;
     justify-content: center;
     width: 100%;
     height: 100%;
     position: relative;
     min-height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+* {
+    max-width: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Great Vibes', serif;
@@ -119,16 +124,17 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 100px;
     margin-top: -130px;
 }
+.photo-text h4{
+    font-size: 150px;
+    text-transform: capitalize;
+}
 .photo-text p {
     font-size: 100px;
-    margin: -100px 0 0 0;
     font-style: italic;
 }
-.photo-text h1, .photo-text p, .photo.section h3{
-    background: linear-gradient(to right, #f1f1f1, #e0e0e0, #ffffff, #e0e0e0, #f1f1f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.photo-text h4, .photo-text p, .photo-text h1, .photo-text h2, .photo-text h3{
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 25px rgba(0, 0, 0, 0.1);
 }
 /* Estilo para la cuenta regresiva */
 .title h1{
@@ -213,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     text-align: center;
 }
-.story-section h2, .itinerary-item h2, .dresscode-section h2, .filter-section h2, .wishes-section h2, .gallery-section h2, .playlist-section h2, .rsvp-section h2, .gifts-section h2{
+.story-section h2, .itinerary-item h2, .dresscode-section h2, .filter-section h2, .wishes-section h2, .gallery-section h2, .playlist-section h2, .rsvp-section h2, .gifts-section h2, .album-section h2{
     font-size: 110px;
     margin-bottom: 50px;
     text-transform: initial;
@@ -222,6 +228,11 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(to right, #5e3b1e, #8b5e3c, #b29a68, #8b5e3c, #5e3b1e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.album-section h1{
+    color: olive;
+    font-size: 90px;
+    text-transform: initial;
 }
 .contenedor-play {
     position: relative; /* Asegura que los elementos dentro se posicionen en relación al contenedor */
@@ -349,13 +360,18 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.dresscode-section p, .playlist-section p, .rsvp-section p, .nochild-section p{
+.dresscode-section p, .playlist-section p, .rsvp-section p, .nochild-section p, .album-section p{
     margin: 10px 0;
     font-size: 80px;
     color: #7b6250;
 }
-.gifts-section, .gallery-section{
+.gifts-section, .gallery-section, .album-section{
     background-color: #f2f8eb98;
+    text-align: center;
+    padding: 10px 0 30px;
+}
+.album-section{
+    background-color: transparent;
     text-align: center;
     padding: 10px 0 30px;
 }
@@ -397,7 +413,7 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
-.directions-button, .wishes-section button, .rsvp-section button, .playlist-section button, .filter-section button, .gifts-section button{  
+.directions-button, .wishes-section button, .rsvp-section button, .playlist-section button, .filter-section button, .gifts-section button, .upload-btn{  
     padding: 10px 20px;
     margin-top: 10px;
     border: none;
@@ -409,8 +425,13 @@ h1, h2, h3, h4, h5, h6 {
     transition: background-color 0.3s, box-shadow 0.3s;  
     font-weight: 200;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra alrededor de la imagen */
+    text-decoration: none;
 }
-.wishes-section button:hover, .directions-button:hover, .rsvp-section button:hover, .playlist-section button:hover, .filter-section button:hover, .gifts-section button:hover{
+.upload-btn{
+    font-style: normal;
+    font-weight: bold;
+}
+.wishes-section button:hover, .directions-button:hover, .rsvp-section button:hover, .playlist-section button:hover, .filter-section button:hover, .gifts-section button:hover, .upload-btn:hover{
     background-color:white;
     color: #9a731b;
 }
@@ -562,6 +583,26 @@ footer .logo img {
     width: 100%;
     height: auto;
 }
+/*seccion del album*/
+.hashtag {
+    font-size: 40px;
+    font-weight: 400;
+    color: olive;
+}
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon {
+    padding: 0;
+    margin: 0;
+}
+.icon img {
+    width: 50%;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
 @media (max-width: 768px) {
     .main-content {
         padding: 0;
@@ -585,27 +626,32 @@ footer .logo img {
         overflow: hidden; /* Evita que el contenido se desborde */
     }
     .photo-text h1 {
-        margin-top: -350px;
+        margin-top: 80px;
         font-size: 50px;
     }
     .photo-text h2 {
-        margin-top: -50px;
-        font-size: 35px;
+        margin-top: -40px;
+        font-size: 40px;
     }
     .photo-text h3{
         margin-top: -50px;
-        font-size: 45px;
+        font-size: 50px;
         text-transform: none;
     }
-    .texto-play h2{
-        margin-top: -50px;
-        font-size: 35px;
+    .photo-text h4{
+        margin-top: -120px;
+        font-size: 50px;
+        text-transform: none;
+        margin-bottom: 10px;
     }
     .photo-text p {
         font-size: 25px;
         padding: 10px;
-        margin-top: -30px;
-        margin-bottom: 30px;
+        margin-top: 5px;
+    }
+    .texto-play h2{
+        margin-top: -50px;
+        font-size: 35px;
     }
     .countdown{
         margin-top: 20px;
@@ -619,14 +665,15 @@ footer .logo img {
     .quote-section{
         padding: 25px 5px;
     }
-    .quote-section p, .guest-section p, .invitation-info-section p, .special-day-section p .dresscode-section p, .gifts-section p, .filter-section p, .rsvp-section p, .playlist-section p, .dresscode-section p, .nochild-section p{
+    .quote-section p, .guest-section p, .invitation-info-section p, .special-day-section p .dresscode-section p, .gifts-section p, .filter-section p, .rsvp-section p, .playlist-section p, .dresscode-section p, .nochild-section p, .album-section p{
         font-size: 22px;
         padding: 10px;
     }
-    .story-section h2, .gifts-section h2, .dresscode-section h2, .filter-section h2, .rsvp-section h2, .wishes-section h2, .playlist-section h2, .gallery-section h2, .nochild-section h2{
+    .story-section h2, .gifts-section h2, .dresscode-section h2, .filter-section h2, .rsvp-section h2, .wishes-section h2, .playlist-section h2, .gallery-section h2, .nochild-section h2, .album-section h2, .album-section h1{
         font-size: 45px;
         margin-bottom: 10px;
         text-transform: initial;
+        padding: 5px;
     }
     .itinerary-item h2{
         font-size: 40px;
@@ -649,7 +696,7 @@ footer .logo img {
     .directions-button{
         font-size: 16px;
     }
-    .rsvp-section button, .playlist-section button, .filter-section button,.wishes-section button, .gifts-section button{
+    .rsvp-section button, .playlist-section button, .filter-section button,.wishes-section button, .gifts-section button, .upload-btn{
         font-size: 16px;
     }
     .time-location .date, .time-location .time{
@@ -665,9 +712,8 @@ footer .logo img {
         font-size: 30px;
     }
     .unit {
-        width: 65px;
-        height: 65px;
-        padding: 15px 10px 1px 10px;
+        width: 75px;
+        height: 75px;
         border-radius: 100px;
     }
     .number {
