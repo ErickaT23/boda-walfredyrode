@@ -18,7 +18,6 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Great Vibes', serif;
-    text-transform: uppercase;
     font-weight: 600;
     font-style: normal;
 }
@@ -118,11 +117,14 @@ h1, h2, h3, h4, h5, h6 {
 .photo-text h1 {
     font-size: 150px;
     text-transform: capitalize;
-    margin-top: -800px;
+    margin-top: 1000px;
 }
 .photo-text h2 {
     font-size: 100px;
     margin-top: -130px;
+}
+.photo-text h3{
+    font-size: 110px;
 }
 .photo-text h4{
     font-size: 150px;
@@ -836,27 +838,54 @@ footer .logo img {
         font-size: 45px;
     }
     .photo-text h1 {
-        margin-top: -800px;
-        font-size: 135px;
+        margin-top: 300px;
+        font-size: 235px;
     }
-
     .photo-text h2 {
-        margin-top: -100px;
-        font-size: 80px;
+        margin-top: -200px;
+        font-size: 180px;
     }
-
+    .photo-text h3{
+        font-size: 235px;
+        margin-top: -200px;
+    }
+    .photo-text h4{
+        font-size: 230px;
+        margin-top: -50px;
+    }
+    .photo-text h5{
+        font-size: 100px;
+        padding: 20px;
+        margin-top: -200px;
+    }
     .photo-text p {
-        font-size: 60px;
-        padding: 10px;
+        font-size: 100px;
+        padding: 15px;
+        margin-top: -50px;
     }
     .contenedor-play {
-        height:880px;
+        width: 100%; /* Ocupa todo el ancho disponible */
+        height: 1200px; /* Ajusta la altura según sea necesario */
+        margin-top: -100px;
+        margin-bottom: -200px;
+    }
+    .countdown {
+        margin: 0 auto;
+        gap: 20px;
+    }
+    .unit {
+        width: 205px;
+        height: 205px;
+        padding: 10px;
+        border-radius: 100%;
+    }
+    .number {
+        font-size: 90px;
     }
     .gallery-main img {
         width: 700px; /* Ajusta el tamaño de las imágenes principales en la galería */
         height: 750px;
     }
-
     .gallery-thumbs img {
         width: 160px;
         height: 200px;
@@ -865,25 +894,9 @@ footer .logo img {
         width: 700px;
         height: 750px;
     }
-    .countdown {
-        margin: 0 auto;
-    }
-
-    .unit {
-        width: 205px;
-        height: 205px;
-        padding: 10px;
-        border-radius: 100%;
-    }
-
-    .number {
-        font-size: 90px;
-    }
-
     .label {
         font-size: 50px;
     }
-
     .itinerary-item i {
         font-size: 80px;
     }
@@ -891,13 +904,13 @@ footer .logo img {
         width: 300px;
         height: 300px;
     }
-    .itinerary-item h2, .gifts-section h2, .playlist-section h2, .dresscode-section h2, .gallery-section h2, .filter-section h2, .wishes-section h2, .rsvp-section h2 {
+    .itinerary-item h2, .gifts-section h2, .playlist-section h2, .dresscode-section h2, .gallery-section h2, .filter-section h2, .wishes-section h2, .rsvp-section h2, .album-section h1, .album-section h2{
         font-size: 85px;
     }
     .invitation-info-section p, .guest-section p {
         font-size: 55px;
     }
-    .itinerary-item p, .gifts-section p, .filter-section p, .playlist-section p, .dresscode-section p, .rsvp-section p{
+    .itinerary-item p, .gifts-section p, .filter-section p, .playlist-section p, .dresscode-section p, .rsvp-section p, .qr-container p{
         font-size: 70px;
         margin: 10px;
         padding: 5px;
@@ -916,16 +929,6 @@ footer .logo img {
         font-size: 30px;
         padding: 10px 20px;
     }
-    #wish-form h3{
-        font-size: 55px;
-    }
-    #wish-form label{
-        font-size: 35px;
-    }
-    #wish-form input, #wish-form textarea {
-        width: 95%;
-        font-size: 35px;
-    }
     .banner-section {
         font-size: 55px;
     }
@@ -935,5 +938,31 @@ footer .logo img {
     footer .logo img{
         width: 120px;
         height: auto;
+    }
+    .separador-1, .separador-2{
+        position: relative;
+        width: 100%;
+        height: 900px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-top: -30px;
+    }
+    .separador-1::before, .separador-2::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(/images/72.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .qr-container img{
+        width: 800px;
     }
 }
