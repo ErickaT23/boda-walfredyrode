@@ -58,6 +58,12 @@ const guests = [
     { id: "57", name: "Srita. Katia Flores", adultPasses: 1, childPasses: 0, gender: "Femenino" },
     { id: "58", name: "Hno. Manolo González y fam.", adultPasses: 3, childPasses: 0 },
     { id: "59", name: "Rubi Monzón", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "60", name: "Maricarmen Barrios", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "61", name: "Keylim Cruz", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "62", name: "Natalia Granajo", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "63", name: "Rosi Samayoa", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "64", name: "Daniela Reyes", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "65", name: "Antony Morales", adultPasses: 1, childPasses: 0, gender: "Masculino" },
 ];
 
 
