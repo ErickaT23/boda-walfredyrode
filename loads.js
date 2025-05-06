@@ -64,6 +64,10 @@ const guests = [
     { id: "63", name: "Rosi Samayoa", adultPasses: 1, childPasses: 0, gender: "Femenino" },
     { id: "64", name: "Daniela Reyes", adultPasses: 1, childPasses: 0, gender: "Femenino" },
     { id: "65", name: "Antony Morales", adultPasses: 1, childPasses: 0, gender: "Masculino" },
+    { id: "66", name: "Nancy Morales", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "67", name: "Verónica Ochoa", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "68", name: "Elizabeth Esquit", adultPasses: 1, childPasses: 0, gender: "Femenino" },
+    { id: "69", name: "Wilgelin Mejicanos y Esposa", adultPasses: 2, childPasses: 0 },
 ];
 
 
