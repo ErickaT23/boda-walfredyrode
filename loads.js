@@ -70,9 +70,9 @@ const guests = [
     { id: "69", name: "Wilgelin Mejicanos y Esposa", adultPasses: 2, childPasses: 0 },
     { id: "70", name: "Rosa Ramírez", adultPasses: 1, childPasses: 0, gender: "Femenino" },
     { id: "71", name: "Cristal Estrada", adultPasses: 1, childPasses: 0, gender: "Femenino" },
-    { id: "72", name: "",}
+     // Invitado especial: id = "72"
+     { id: "72", name: "" }
 ];
-
 
 document.addEventListener("DOMContentLoaded", function() {
     function getQueryParams() {
@@ -88,30 +88,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const queryParams = getQueryParams();
     const guestId = queryParams.id;
-
-    // Buscar el invitado en el array
     const guest = guests.find(g => g.id === guestId);
 
     if (guest) {
-        const totalPasses = guest.adultPasses + guest.childPasses;
-        const adultText = guest.adultPasses === 1 ? "1 adulto" : `${guest.adultPasses} adultos`;
-        const childText = guest.childPasses === 0 ? "" : ` y ${guest.childPasses} ${guest.childPasses === 1 ? 'niño' : 'niños'}`;
+        const nameEl = document.getElementById('guest-name');
+        const passesEl = document.getElementById('passes');
 
-        let invitationText = '';
+        // ——— Caso especial para id = "72" ———
+        if (guest.id === "72") {
+            // Solo mostramos el mensaje y ocultamos los pases
+            nameEl.textContent = "¡Estás invitado!";
+            passesEl.style.display = "none";
+            return;
+        }
+
+        // ——— Lógica estándar para los demás invitados ———
+        const adultText = guest.adultPasses === 1
+            ? "1 adulto"
+            : `${guest.adultPasses} adultos`;
+        const childText = guest.childPasses === 0
+            ? ""
+            : ` y ${guest.childPasses} ${guest.childPasses === 1 ? 'niño' : 'niños'}`;
+
+        let invitationText = "";
         if (guest.adultPasses === 1) {
-            // Para un solo adulto, asignar según el género
-            invitationText = guest.gender === "Masculino" ? `¡${guest.name}, estás invitado!` : `¡${guest.name}, estás invitada!`;
+            invitationText = guest.gender === "Masculino"
+                ? `¡${guest.name}, estás invitado!`
+                : `¡${guest.name}, estás invitada!`;
         } else {
-            // Para más de un adulto
             invitationText = `¡${guest.name}, están invitados!`;
         }
 
-        document.getElementById('guest-name').textContent = invitationText;
-        document.getElementById('passes').textContent = `${adultText}${childText}`;
+        nameEl.textContent = invitationText;
+        passesEl.textContent = `${adultText}${childText}`;
     } else {
-        document.getElementById('guest-name').textContent = `¡Invitado no encontrado!`;
+        // Invitado no encontrado
+        document.getElementById('guest-name').textContent = "¡Invitado no encontrado!";
         document.querySelector('.invitation-info-section').style.display = 'none';
     }
 });
-
-
